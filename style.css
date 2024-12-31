@@ -1,15 +1,45 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #548687;
+    background: url('placeholder-for-image.jpg') no-repeat center center fixed;
+    background-size: cover;
     text-align: center;
+    font-family: Arial, sans-serif;
+    color: #0c0c0c5e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-top: 1rem;
+    text-shadow: 0 0 10px rgba(238, 80, 80, 0.7);
+    animation: fadeInTitle 2s ease-in-out;
+    z-index: 10; /* Ensures the title is above other elements */
+    background: rgba(173, 37, 37, 0.5);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+}
+
+@keyframes fadeInTitle {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .container {
-    height: 70vh;
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,6 +53,18 @@ body {
     justify-content: center;
     align-items: center;
     gap: 1.5vmin;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .box {
@@ -34,6 +76,25 @@ body {
     font-size: 8vmin;
     color: #b0413e;
     background-color: #ffffc7;
+    cursor: pointer;
+    animation: popUp 0.5s ease-in-out;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.box:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.5);
+}
+
+@keyframes popUp {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 #reset-btn, #new-btn {
@@ -43,11 +104,31 @@ body {
     color: #fff;
     border-radius: 1rem;
     border: none;
+    cursor: pointer;
+    margin-top: 2rem;
+    animation: fadeIn 1.5s ease-in-out;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+#reset-btn:hover, #new-btn:hover {
+    transform: scale(1.1);
+    background-color: #333333;
 }
 
 #msg {
-    color: #ffffc7;
+    color: #0dda29;
     font-size: 8vmin;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    animation: bounce 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes bounce {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
 }
 
 .msg-container {
@@ -58,6 +139,7 @@ body {
     align-items: center;
     flex-direction: column;
     gap: 4rem;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .hide {

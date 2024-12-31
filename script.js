@@ -27,6 +27,7 @@ const enableBoxes = () => {
     boxes.forEach((box) => {
         box.disabled = false;
         box.innerText = "";
+        box.classList.remove("win");
     });
 };
 
@@ -49,6 +50,9 @@ const checkWinner = () => {
         let pos3Val = boxes[pattern[2]].innerText;
 
         if (pos1Val !== "" && pos1Val === pos2Val && pos2Val === pos3Val) {
+            boxes[pattern[0]].classList.add("win");
+            boxes[pattern[1]].classList.add("win");
+            boxes[pattern[2]].classList.add("win");
             showWinner(pos1Val);
             return;
         }
